@@ -1,6 +1,8 @@
-(apply 
+(def serie (range 10 1000))
+
+(apply
  max
  (filter
-  #(= (seq (str %)) (reverse (str %)))  
-  (for [x (range 10 1000) y (range 10 1000)] 
+  #(= (seq (str %)) (reverse (str %)))
+  (for [x serie y serie]
     (* x y))))
