@@ -1,15 +1,19 @@
 (ns io.mstream.solution
   (:gen-class))
 
+(defn solution
+  [limit]
+  (apply
+    +
+    (filter
+      even?
+      (loop [serie [1 2]]
+        (let [next (apply + (take-last 2 serie))]
+          (if (<= next limit)
+            (recur (concat serie [next]))
+            serie))))))
+
 (defn -main
   []
   (println
-    (apply
-      +
-      (filter
-        even?
-        (loop [serie [1 2] max 4000000]
-          (let [next (apply + (take-last 2 serie))]
-            (if (<= next max)
-              (recur (concat serie [next]) max)
-              serie)))))))
+    (solution 4000000)))

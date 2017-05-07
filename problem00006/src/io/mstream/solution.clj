@@ -2,15 +2,18 @@
   (:require [clojure.math.numeric-tower :as math])
   (:gen-class))
 
+(defn solution
+  [limit]
+  (let [serie (range 1 limit)]
+    (-
+      (math/expt (apply + serie) 2)
+      (apply
+        +
+        (map
+          #(math/expt % 2)
+          serie)))))
+
 (defn -main
   []
   (println
-    (let [serie (range 1 101)]
-      (-
-        (let [sum (apply + serie)]
-          (math/expt sum 2))
-        (apply
-          +
-          (map
-            #(math/expt % 2)
-            serie))))))
+    (solution 101)))

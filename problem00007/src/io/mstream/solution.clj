@@ -2,7 +2,7 @@
   (:require [clojure.math.numeric-tower :as math])
   (:gen-class))
 
-(defn is-prime
+(defn prime?
   [n]
   (let [dividers (range 2 (inc (math/floor (math/sqrt n))))]
     (every?
@@ -11,12 +11,16 @@
         #(zero? (mod n %))
         dividers))))
 
+(defn solution
+  [index]
+  (loop [n 2 primes-found 0]
+    (if (prime? n)
+      (if (= index primes-found)
+        n
+        (recur (inc n) (inc primes-found)))
+      (recur (inc n) primes-found))))
+
 (defn -main
   []
   (println
-    (loop [n 2 primes-found 0]
-      (if (is-prime n)
-        (if (= 10000 primes-found)
-          n
-          (recur (inc n) (inc primes-found)))
-        (recur (inc n) primes-found)))))
+    (solution 10000)))

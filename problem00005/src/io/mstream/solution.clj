@@ -11,15 +11,19 @@
         (recur (/ n m) m (concat p [m]))
         (recur n (inc m) p)))))
 
+(defn solution
+  [limit]
+  (reduce
+    *
+    (map
+      (fn [[k v]] (math/expt k v))
+      (apply
+        merge-with max
+        (map
+          frequencies
+          (map prime-factors (range 2 limit)))))))
+
 (defn -main
   []
   (println
-    (reduce
-      *
-      (map
-        (fn [[k v]] (math/expt k v))
-          (apply
-            merge-with max
-            (map
-              frequencies
-              (map prime-factors (range 2 20))))))))
+    (solution 20)))

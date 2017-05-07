@@ -1,15 +1,19 @@
 (ns io.mstream.solution
   (:gen-class))
 
+(defn solution
+  [from to]
+  (let [serie (range from to)]
+    (apply
+      max
+      (filter
+        #(= (seq (str %)) (reverse (str %)))
+        (for [x serie y serie]
+          (* x y))))))
+
 (defn -main
   []
   (println
-    (let [serie (range 10 1000)]
-      (apply
-        max
-        (filter
-          #(= (seq (str %)) (reverse (str %)))
-          (for [x serie y serie]
-            (* x y)))))))
+    (solution 100 1000)))
 
 
