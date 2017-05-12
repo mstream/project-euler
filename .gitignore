@@ -1,2 +1,5 @@
 **/*/target
-**/*/.lein-failures
+**/*/.lein-*
+**/*/.nrepl-*
+.idea/
+**/*.iml
