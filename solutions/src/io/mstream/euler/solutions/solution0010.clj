@@ -1,29 +1,9 @@
 (ns io.mstream.euler.solutions.solution0010
+  (:require [io.mstream.euler.utils.primes :as primes])
   (:gen-class))
 
 (defn solution
   [limit]
-  (dec
-    (apply
-      +
-      (loop [serie (vec (concat (range 0 limit)))
-             multiplicand 2
-             multiplerIdx 2]
-        (if (= multiplerIdx (dec (count serie)))
-          serie
-          (let [multiplier (nth serie multiplerIdx)]
-            (if (zero? multiplier)
-              (recur serie 2 (inc multiplerIdx))
-              (let [product (* multiplicand multiplier)]
-                (if (>= product (count serie))
-                  (recur serie 2 (inc multiplerIdx))
-                  (recur
-                    (assoc serie product 0)
-                    (inc multiplicand)
-                    multiplerIdx))))))))))
+  (apply + (primes/primes 2 limit)))
 
-(defn -main
-  []
-  (println
-    (solution 2000000)))
 

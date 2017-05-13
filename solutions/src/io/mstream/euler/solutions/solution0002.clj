@@ -12,8 +12,3 @@
           (if (<= next limit)
             (recur (concat serie [next]))
             serie))))))
-
-(defn -main
-  []
-  (println
-    (solution 4000000)))

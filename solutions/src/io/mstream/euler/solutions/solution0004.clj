@@ -11,9 +11,5 @@
         (for [x serie y serie]
           (* x y))))))
 
-(defn -main
-  []
-  (println
-    (solution 100 1000)))
 
 

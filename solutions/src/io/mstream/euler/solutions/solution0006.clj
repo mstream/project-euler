@@ -12,8 +12,3 @@
         (map
           #(math/expt % 2)
           serie)))))
-
-(defn -main
-  []
-  (println
-    (solution 101)))

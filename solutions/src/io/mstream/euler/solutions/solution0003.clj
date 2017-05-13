@@ -10,8 +10,3 @@
         (recur (/ n m) m)
         (recur n (inc m))))))
 
-(defn -main
-  []
-  (println
-    (solution 600851475143)))
-

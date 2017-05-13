@@ -23,7 +23,3 @@
           frequencies
           (map prime-factors (range 2 limit)))))))
 
-(defn -main
-  []
-  (println
-    (solution 20)))
