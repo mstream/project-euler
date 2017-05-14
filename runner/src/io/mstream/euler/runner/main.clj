@@ -22,7 +22,10 @@
              :rename {solution solution0007}]
             [io.mstream.euler.solutions.solution0010
              :refer [solution]
-             :rename {solution solution0010}])
+             :rename {solution solution0010}]
+            [io.mstream.euler.solutions.solution0014
+             :refer [solution]
+             :rename {solution solution0014}])
   (:gen-class))
 
 (def solutions {"0001" {:function solution0001
@@ -40,7 +43,9 @@
                 "0007" {:function solution0007
                         :params   [10000]}
                 "0010" {:function solution0010
-                        :params   [2000000]}})
+                        :params   [2000000]}
+                "0014" {:function solution0014
+                        :params   [1000001]}})
 
 (defn -main
   [solution-id]
