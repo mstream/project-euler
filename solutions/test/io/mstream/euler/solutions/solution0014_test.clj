@@ -4,7 +4,7 @@
             [clojure.test
              :refer [deftest is testing]]))
 
-(deftest solution0010-test
+(deftest solution0014-test
   (testing "produces expected result"
     (is (= 3 (solution 5)))
     (is (= 9 (solution 10)))
